@@ -1,0 +1,23 @@
+name: build
+on:
+    push:
+        branches:
+            - master
+            - release/*
+jobs:
+    build:
+        name: my node build job
+        runs-on: ${{ matrix.os }}
+        strategy:
+            matrix:
+                os: [ubuntu:latest, windows-latest]
+                node: [14,16]
+                exclude:
+                    - os: windows-latest
+                      node: 14
+        steps:
+            - uses: actions/checkout/@v3
+            - name: Use node.js ${{ matrix.node }}
+              uses: actions/setup-node@v2
+              with:
+                node-version: ${{ matrix.node }}
