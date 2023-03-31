@@ -4,7 +4,7 @@ on:
         branches:
             - master
 jobs:
-    build:
+    test-only:
         name: my node build job
         runs-on: ${{ matrix.os }}
         strategy:
