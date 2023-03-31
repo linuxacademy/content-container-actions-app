@@ -1,9 +1,8 @@
 name: build
 on:
     push:
-        branches:
-            - master
-            - release/*
+        paths:
+            - '**.js'
 jobs:
     build:
         name: my node build job
